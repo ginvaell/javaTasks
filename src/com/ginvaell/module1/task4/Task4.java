@@ -1,6 +1,6 @@
 package com.ginvaell.module1.task4;
 
-public class Main {
+public class Task4 {
 
     public static void main(String[] args) {
 	    //lab 1-4

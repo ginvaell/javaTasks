@@ -2,7 +2,7 @@ package com.ginvaell.module1.task3;
 
 import java.util.Scanner;
 
-public class Main {
+public class Task3 {
     private static Scanner in;
     public static void main(String[] args) {
         double a = 0;
