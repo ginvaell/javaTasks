@@ -1,18 +1,25 @@
-package com.ginvaell.module1.task1;
+package com.ginvaell.module1.task3;
 
 import java.util.Scanner;
 
 public class Main {
     private static Scanner in;
     public static void main(String[] args) {
-        in = new Scanner(System.in);
-        double a = read("a");
-        double b = read("b");
-        if(b - a < 0) {
-            System.out.print("b should be greater then a!");
-            System.exit(0);
+        double a = 0;
+        double b = 0;
+        double h = 0;
+        try(Scanner scanner = new Scanner(System.in) ) {
+            in = scanner;
+            a = read("a");
+            b = read("b");
+            if(b - a < 0) {
+                System.out.print("b should be greater then a!");
+                System.exit(0);
+            }
+            h = read("h");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        double h = read("h");
         if(h > b-a) {
             System.out.print("h should be less then b-a!");
             System.exit(0);
