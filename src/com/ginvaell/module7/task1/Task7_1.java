@@ -28,8 +28,6 @@ public class Task7_1 {
                     e.printStackTrace();
                 }
             });
-
-
             System.out.println(accounts);
 
 
