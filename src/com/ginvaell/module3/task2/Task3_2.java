@@ -8,7 +8,7 @@ public class Task3_2 {
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
             System.out.println("1. English");
-            System.out.println("2. Р СѓСЃСЃРєРёР№");
+            System.out.println("2. Русский");
 
             if (in.hasNextInt()) {
                 int l = in.nextInt();
