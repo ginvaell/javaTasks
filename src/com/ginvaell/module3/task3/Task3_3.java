@@ -8,15 +8,16 @@ public class Task3_3 {
     public static void main(String[] args) {
         StringBuilder str = new StringBuilder();
         File file = new File("src\\com\\ginvaell\\module3\\task3\\text.html");
-        try (FileReader fr = new FileReader(file); BufferedReader fin = new BufferedReader(fr)) {
+        try (FileInputStream fis = new FileInputStream(file); InputStreamReader fr = new InputStreamReader(fis, "windows-1251"); BufferedReader fin = new BufferedReader(fr)) {
             String line;
             while ((line = fin.readLine()) != null) str.append(line + '\n');
 
             System.out.println("Sentances with links to drawings");
-            Pattern p = Pattern.compile("\"[Р-п][^\\\\.]*\\\\(ашё. \\\\d+.*\\\\)[^\\\\.]*\\\\.\"\n");
+            Pattern p = Pattern.compile("[Р-п]([^.!?]*(\\(ашё\\. \\d[^)]*\\)))+[^.!?]*[.!?]");
             Matcher m = p.matcher(str);
             while (m.find()) {
                 System.out.println(m.group());
+                System.out.println("----------------------------");
 
             }
 
