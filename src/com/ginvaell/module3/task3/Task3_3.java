@@ -13,25 +13,38 @@ public class Task3_3 {
             while ((line = fin.readLine()) != null) str.append(line + '\n');
 
             System.out.println("Sentances with links to drawings");
-            Pattern p = Pattern.compile("[Р-п]([^.!?]*(\\(ашё\\. \\d[^)]*\\)))+[^.!?]*[.!?]");
+            Pattern p = Pattern.compile("[Р-п]([^.!?]*(\\(ашё\\. \\d+[^)]*\\)))+[^.!?]*[.!?]");
             Matcher m = p.matcher(str);
             while (m.find()) {
-                System.out.println(m.group());
+                System.out.println(m.group(0));
                 System.out.println("----------------------------");
 
             }
 
             System.out.println("\nOrder of pictures");
-            p = Pattern.compile("(\\d+)\\.jpg");
+            p = Pattern.compile("\\(ашё\\. (\\d+)[^)\\d]*(\\d*)[^)]*\\)"
+            );
             m = p.matcher(str);
             int x, max = 0;
+            int y=0;
             boolean flag = false;
             while (m.find()) {
                 x = Integer.parseInt(m.group(1));
-                if (x != ++max) {
+                System.out.println(x);
+                if (!m.group(2).equals("")) {
+                    y = Integer.parseInt(m.group(2));
+                    System.out.println(y);
+                }
+                else {
+                    y = Integer.MAX_VALUE;
+                }
+                if (x < max || x > y) {
                     System.out.println("Error!");
                     flag = true;
                     break;
+                }
+                else {
+                    max = x;
                 }
             }
             if (flag == false) System.out.println("ALLGOOD!!!");
